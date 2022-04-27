@@ -1,0 +1,7 @@
+<div class="task-component flex-row items-center gap-1 my-1 p-1 rounded">
+    <input (click)="emitToggleChecked()" class="pointer" [maxLength]="100" type="checkbox" [checked]="task?.checked">
+    <p class="grow-1">{{task?.description}}</p>
+    <button (click)="emitRemove()" class="trash-btn btn pointer">
+        <img src="assets/icons/trash.svg">
+    </button>
+</div>

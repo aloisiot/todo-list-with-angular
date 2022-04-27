@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+//  Color pallet
+ :root {
+     --primary-color: cadetblue;
+     --light-gray: #EEE
+ }
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.w-full{
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+// Flex box
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.items-center {
+    align-items: center;
+}
+.justify-center {
+    justify-content: center;
+}
+.gap-1 {
+    gap: 8px;
+}
+.grow-1 {
+    flex-grow: 1;
+}
+
+// padding
+.p-2 {
+    padding: 16px;
+}
+.p-1 {
+    padding: 8px;
+}
+
+.rounded {
+    border-radius: 4px;
+}
+
+.list-style-none {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+// margim
+.mb-1 {
+    margin-bottom: 16px;
+}
+
+.my-1 {
+    margin: 8px 0;
+}
+
+.m-1 {
+    margin: 8px;
+}
+
+// Button
+.btn {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+//  shadow
+.shadow{
+    box-shadow: 0 4px 4px #0002;
+}
+
+//  Cursor
+.pointer {
+    cursor: pointer;
+}
+
+// text
+.text-center {
+    text-align: center;
+}

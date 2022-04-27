@@ -1,0 +1,17 @@
+.task-component {
+    background-color: var(--light-gray);
+
+    .trash-btn {
+        margin: 0;
+
+        img {
+            height: 24px;
+            width: 24px;
+            object-fit: cover;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}

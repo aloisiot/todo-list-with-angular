@@ -1,0 +1,24 @@
+main {
+    height: 100%;
+    background-color: var(--primary-color);
+
+    .main-title {
+        color: #FFF;
+        font-size: 2rem;
+    }
+
+    .tasks-container{
+        background-color: #FFF;
+        max-width: 400px;
+    }
+
+    .todo-illustration {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .clean-tasks-btn {
+        color: white;
+        background-color: indianred;
+    }
+}
