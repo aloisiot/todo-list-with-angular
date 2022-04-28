@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   saveTask(description: string): void {
     if(description.length >= 5) {
-      this.tasks.push({
+      this.tasks.unshift({
         description,
         checked: false,
         key: this.tasks.length + "-" + Date.now()
@@ -52,11 +52,11 @@ export class AppComponent implements OnInit {
   }
 
   loadStorage(): void {
-    try {
       const tasks = localStorage.getItem("tasks")
-      if(tasks) this.tasks = JSON.parse(tasks)
-    } catch {
-      this.tasks = []
-    }
+      if(tasks) {
+        this.tasks = JSON
+        .parse(tasks)
+        .sort((task1: Task, task2: Task) => task1.checked && !task2.checked ? 1 : -1)
+      }
   }
 }
