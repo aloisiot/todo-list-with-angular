@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   saveTask(description: string): void {
-    if(description.length > 5) {
+    if(description.length >= 5) {
       this.tasks.push({
         description,
         checked: false,
@@ -33,8 +33,10 @@ export class AppComponent implements OnInit {
   }
 
   cleanTasks() {
-    this.tasks = []
-    this.updateStorage()
+    if(confirm("Do you want to delete all tasks?")){
+      this.tasks = []
+      this.updateStorage()
+    }
   }
   
   changeTask(task: Task): void {
