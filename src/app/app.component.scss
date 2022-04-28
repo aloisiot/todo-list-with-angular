@@ -18,4 +18,13 @@ main {
         color: white;
         background-color: indianred;
     }
+
+    footer > a {
+        color: #EEE;
+        text-decoration: none;
+
+        &:hover {
+            color: white;
+        }
+    }
 }
