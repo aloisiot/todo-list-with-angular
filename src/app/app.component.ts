@@ -54,9 +54,8 @@ export class AppComponent implements OnInit {
   loadStorage(): void {
       const tasks = localStorage.getItem("tasks")
       if(tasks) {
-        this.tasks = JSON
-        .parse(tasks)
-        .sort((task1: Task, task2: Task) => task1.checked && !task2.checked ? 1 : -1)
+        this.tasks = JSON.parse(tasks)
+          .sort((task1: Task, task2: Task) => task1.checked && !task2.checked ? 1 : -1)
       }
   }
 }
