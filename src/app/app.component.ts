@@ -15,9 +15,10 @@ export class AppComponent implements OnInit {
   }
 
   saveTask(description: string): void {
-    if(description.length >= 5) {
+    const desc = description.trim()
+    if(desc.length >= 5) {
       this.tasks.unshift({
-        description,
+        description: desc,
         checked: false,
         key: this.tasks.length + "-" + Date.now()
       })
