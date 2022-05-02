@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Task } from './task/task.component';
 
 @Component({
@@ -6,12 +6,16 @@ import { Task } from './task/task.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck {
 
   tasks: Array<Task> = []
 
   ngOnInit(): void {
     this.loadStorage()
+  }
+  
+  ngDoCheck(): void {
+    this.updateStorage()
   }
 
   saveTask(description: string): void {
@@ -22,7 +26,6 @@ export class AppComponent implements OnInit {
         checked: false,
         key: this.tasks.length + "-" + Date.now()
       })
-      this.updateStorage()
     } else {
       alert("Minimum of 5 characters!")
     }
@@ -30,13 +33,11 @@ export class AppComponent implements OnInit {
 
   removeTask(task: Task): void {
     this.tasks = this.tasks.filter(currentTask => task.key !== currentTask.key)
-    this.updateStorage()
   }
 
   cleanTasks() {
     if(confirm("Do you want to delete all tasks?")){
       this.tasks = []
-      this.updateStorage()
     }
   }
   
@@ -44,7 +45,6 @@ export class AppComponent implements OnInit {
     this.tasks = this.tasks.map(currentTask => {
       return task.key === currentTask.key ? task : currentTask
     })
-    this.updateStorage()
   }
 
   updateStorage(): void {
@@ -53,10 +53,7 @@ export class AppComponent implements OnInit {
   }
 
   loadStorage(): void {
-      const tasks = localStorage.getItem("tasks")
-      if(tasks) {
-        this.tasks = JSON.parse(tasks)
-          .sort((task1: Task, task2: Task) => (+task1.checked) - (+task2.checked))
-      }
+    const tasks = JSON.parse(localStorage.getItem("tasks") || "[]")
+    this.tasks = tasks.sort((t1: Task, t2: Task) => Number(t1.checked) - Number(t2.checked))
   }
 }
